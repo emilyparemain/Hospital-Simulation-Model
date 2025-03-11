@@ -1,0 +1,37 @@
+# Hospital Ward Simulation Configuration
+
+# Simulation parameters
+simulation_duration: 3.0  # Simulation time (in days) - reduced from 65
+warm_up_period: 1.0  # Warm-up period (in days) - reduced from 65
+data_collection_interval: 1.0  # Interval for collecting statistics (in days)
+seed: 42  # Random seed for reproducibility
+replications: 3  # Number of replications to run - reduced from 10
+
+# Ward configuration
+total_beds: 6 # Total number of beds in the ward
+single_rooms: 2  # Number of single rooms
+bay_sizes: [2, 2]  # Size of each bay (should sum to total_beds - single_rooms)
+
+# Patient parameters
+retry_interval: 0.25  # Time between admission attempts (in days)
+max_wait_time: 15.0  # Maximum time a patient will wait before leaving (in days) - reduced from 30
+
+# Distribution parameters
+arrival_distribution:
+  type: "exponential"
+  mean: 0.5  # Mean inter-arrival time (in days) - slightly reduced for more patients
+
+length_of_stay_distribution:
+  type: "lognormal"
+  mean: 5.0  # Mean length of stay (in days) - reduced from 7.0
+  std_dev: 2.0  # Standard deviation of length of stay - reduced from 3.0
+
+gender_distribution:
+  type: "discrete"
+  values: ["M", "F"]
+  probabilities: [0.48, 0.52]  # Probability of each gender
+
+group_distribution:
+  type: "discrete"
+  values: ["elderly", "adult", "pediatric"]
+  probabilities: [0.6, 0.3, 0.1]  # Probability of each patient group
