@@ -43,7 +43,7 @@ def generate_patient_arrivals(simulation_days):
                 weights=[PATIENT_GROUPS[g]["probability"] for g in PATIENT_GROUPS]
             )[0]
 
-            # Sample Length of Stay (LoS) from an exponential distribution
+            # Sample Length of Stay (LoS) (exponential dist)
             mean_LoS = PATIENT_GROUPS[group_name]["mean_LoS"]
             LoS = np.random.exponential(mean_LoS)
 
